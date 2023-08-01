@@ -1,0 +1,62 @@
+//PRIESMA WIYADHIKA
+//227064516113
+
+public class no3 {
+    public class Pegawai {
+    private String nama;
+    private String jenisKelamin;
+    private String noPegawai;
+    private boolean menikah;
+
+    // Constructor
+    public Pegawai(String nama, String jenisKelamin, String noPegawai, boolean menikah) {
+        this.nama = nama;
+        this.jenisKelamin = jenisKelamin;
+        this.noPegawai = noPegawai;
+        this.menikah = menikah;
+    }
+
+    public int getTunjangan() {
+        if (menikah) {
+            return (jenisKelamin.equalsIgnoreCase("Laki-laki")) ? 200000 : 150000;
+        } else {
+            return 100000;
+        }
+    }
+
+    public void toShow() {
+        System.out.println("Nama: " + nama);
+        System.out.println("Jenis Kelamin: " + jenisKelamin);
+        System.out.println("No Pegawai: " + noPegawai);
+        System.out.println("Status Menikah: " + (menikah ? "Sudah Menikah" : "Belum Menikah"));
+    }
+}
+    public class Programmer extends Pegawai {
+    private int lamaBekerja;
+    private double gaji;
+
+    public Programmer(String nama, String jenisKelamin, String noPegawai, boolean menikah, int lamaBekerja, double gaji) {
+        super(nama, jenisKelamin, noPegawai, menikah);
+        this.lamaBekerja = lamaBekerja;
+        this.gaji = gaji;
+    }
+
+    public double getBonus() {
+        if (lamaBekerja >= 5) {
+            return gaji * 0.1;
+        } else {
+            return gaji * 0.05;
+        }
+    }
+
+    @Override
+    public void toShow() {
+        super.toShow();
+        System.out.println("Lama Bekerja: " + lamaBekerja + " tahun");
+        System.out.println("Gaji: " + gaji);
+    }
+    }
+    public static void main(String[] args) {
+        System.out.println("Hello World!");
+    }
+}
